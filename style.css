@@ -1,0 +1,18 @@
+body{
+    color: red;
+}
+
+h1{
+    color: yellow;
+    border: solid;
+    display: grid;
+    position: right;
+    
+}
+.item{
+    border: 2px solid;
+    width: 50%;
+    position: center;
+    margin: auto;
+    flex-wrap: wrap;
+}

@@ -1,3 +1,22 @@
+// // *************************Maximum Sum contigious subarray*********************************
+let arr = [1,2,3,-4,5,-6,3]
+
+function maxSub(arr){
+  let max = 0
+  let cur = 0
+
+  for(let i = 0; i<arr.length; i++){
+    cur = cur + arr[i]
+    if(cur> max){
+      max = cur
+    }
+    if(cur <0){
+      max = 0
+    }
+  }
+  return max
+}
+
 
 // // *****************************Valid Parenthises******************************* 	
 
@@ -23,7 +42,7 @@
 
 // ________________________________________________________________________________________
 
-// let str = "{([)]}";
+// let str = "{(][)]}";
 
 // function valid(str) {
 //   let count = 0;
@@ -96,7 +115,6 @@
 
 // function flattenArray(arr) {
 //     var flatArray = [];
-
 //     for (var i = 0; i < arr.length; i++) {
 //         if (Array.isArray(arr[i])) {
 //             for (var j = 0; j < arr[i].length; j++) {
@@ -277,9 +295,93 @@
 
 // console.log(occure(arr, 6));
 
+// ___________________________________________sum of subarray________________________
+// ******************************************************************************
+// let arr = [2,1,3,2,4,5,6,3,4]
+// let sum = 15
+
+// function sum2(arr, sun){
+
+//     for(let i = 0; i< arr.length; i++){
+//         let curSum = arr[i]
+
+//         if(curSum === sun){
+//             console.log('Sum at index', i);
+//             return
+//         }else{
+//             for(let j = i+1; i<arr.length; j++){
+//                 curSum = curSum + arr[j]
+//                 if(curSum === sun){
+//                     console.log('sum found between ', i, j);
+//                     return
+//                 }
+//             }
+//         }
+
+//     }
+//     return
+// }
+// console.log(sum2(arr, 15));
+
+// _______________________________________Maximum of all SubArray of Size K___________________
+// function maxOfSubarrays(arr, k) {
+//     const result = [];
+
+//     for (let i = 0; i <= arr.length - k; i++) {
+//         let max = arr[i];
+        
+//         for (let j = 1; j < k; j++) {
+//             if (arr[i + j] > max) {
+//                 max = arr[i + j];
+//             }
+//         }
+
+//         result.push(max);
+//     }
+
+//     return result;
+// }
+
+// // Example usage:
+// const array = [1, 3, -1, -3, 5, 3, 6, 7];
+// const k = 3;
+// const result = maxOfSubarrays(array, k);
+
+// console.log(`Maximum of all subarrays of size ${k}:`, result);
+
+// ______________________________________________________
 
 
 
+// function subArraySum(arr, n, sum) {
+//     for (let i = 0; i < n; i++) {
+//       let currentSum = arr[i];
+  
+//       if (currentSum == sum) {
+//         console.log("Sum found at indexes " ,i);
+//         return;
+//       } else {
+//         for (let j = i + 1; j < n; j++) {
+//           currentSum += arr[j];
+  
+//           if (currentSum == sum) {
+//             console.log("Sum found between indexes " + i + " and " + j);
+//             return;
+//           }
+//         }
+//       }
+//     }
+//     console.log("No subarray found");
+//     return;
+//   }
+
+  
+// let arr = [15, 2, 4, 8, 9, 5, 10, 23];
+// let n = arr.length;
+// let sum = 23;
+// subArraySum(arr, n, sum);
+
+// This code is contributed by garg28harsh.
 
 // *************************Remove duplicates***********************************
 
@@ -573,112 +675,6 @@
 
 // console.log(size(arr, 4));
 
-// ___________________________________________sum of subarray________________________
-// ******************************************************************************
-// let arr = [2,1,3,2,4,5,6,3,4]
-// let sum = 15
-
-// function sum2(arr, sun){
-
-//     for(let i = 0; i< arr.length; i++){
-//         let curSum = arr[i]
-
-//         if(curSum === sun){
-//             console.log('Sum at index', i);
-//             return
-//         }else{
-//             for(let j = i+1; i<arr.length; j++){
-//                 curSum = curSum + arr[j]
-//                 if(curSum === sun){
-//                     console.log('sum found between ', i, j);
-//                     return
-//                 }
-//             }
-//         }
-
-//     }
-//     return
-// }
-// console.log(sum2(arr, 15));
-
-// _______________________________________Maximum of all SubArray of Size K___________________
-// function maxOfSubarrays(arr, k) {
-//     const result = [];
-
-//     for (let i = 0; i <= arr.length - k; i++) {
-//         let max = arr[i];
-        
-//         for (let j = 1; j < k; j++) {
-//             if (arr[i + j] > max) {
-//                 max = arr[i + j];
-//             }
-//         }
-
-//         result.push(max);
-//     }
-
-//     return result;
-// }
-
-// // Example usage:
-// const array = [1, 3, -1, -3, 5, 3, 6, 7];
-// const k = 3;
-// const result = maxOfSubarrays(array, k);
-
-// console.log(`Maximum of all subarrays of size ${k}:`, result);
-
-// ______________________________________________________
-
-
-
-// function subArraySum(arr, n, sum) {
-//     for (let i = 0; i < n; i++) {
-//       let currentSum = arr[i];
-  
-//       if (currentSum == sum) {
-//         console.log("Sum found at indexes " ,i);
-//         return;
-//       } else {
-//         for (let j = i + 1; j < n; j++) {
-//           currentSum += arr[j];
-  
-//           if (currentSum == sum) {
-//             console.log("Sum found between indexes " + i + " and " + j);
-//             return;
-//           }
-//         }
-//       }
-//     }
-//     console.log("No subarray found");
-//     return;
-//   }
-
-  
-// let arr = [15, 2, 4, 8, 9, 5, 10, 23];
-// let n = arr.length;
-// let sum = 23;
-// subArraySum(arr, n, sum);
-
-// This code is contributed by garg28harsh.
-
-// // *************************Maximum Sum contigious subarray*********************************
-// let arr = [1,2,3,-4,5,-6,3]
-
-// function maxSub(arr){
-//   let max = 0
-//   let cur = 0
-
-//   for(let i = 0; i<arr.length; i++){
-//     cur = cur + arr[i]
-//     if(cur> max){
-//       max = cur
-//     }
-//     if(cur <0){
-//       max = 0
-//     }
-//   }
-//   return max
-// }
 // ***********************Move all zeros to right**************************
 // let arr = [2, 9, 0, 6, 34, 0, 1, 2, 0, 8];
 

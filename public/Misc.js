@@ -1,3 +1,51 @@
+//Javascript
+
+// Anagram
+// palidrome
+//parenthisis
+// Fibonacii
+// longestSubstring
+// Move all zeros to right
+// all SubArrays 
+// all subArrays of size z
+// sum of all subarrays of size z
+// Prints all triplets in arr[] with 0 sum 
+// remove duplicates
+// flatten Array
+//pair
+// sort an array
+// Reduce method example
+// flatten object 
+// flatten object with a character
+// array of object groupBy
+// count number of letters
+// fetch data using promises
+// Throttling
+// Debouncing
+
+
+// React
+
+// context API example theme change
+// parent to child prop pass color change
+// todo app
+// fetch API
+// pagination
+// infine scrolling
+// counter
+// HOC
+// useCall back
+// Use Memo
+// UseRef
+// Timer example
+// form Validation
+// Search functionality
+// Change color
+// custom useFetch Hook
+// Counter using useReducer hook
+// Redux boiler plate code
+
+
 
 // // *****************************Valid Parenthises******************************* 	
 
@@ -76,6 +124,26 @@
 // }
 // revwordOrderSame(sentence);
 
+// ***********************************Snake Later ************************************
+
+// let str = 'thisIsACat'
+// function snake(str){
+//     let result  = ''
+
+//     for(let i = 0; i< str.length; i++){
+//         if(str[i] === str[i].toUpperCase() && i != 0){
+//             result += '_' + str[i]
+//         }
+//         else{
+//             result += str[i]
+//         }
+//     }
+//     return result
+// }
+
+// console.log(snake(str));
+
+
 // ********************************* Flatten Array*******************************
 
 // let arr = [1, [2, [3]]];
@@ -122,19 +190,19 @@
 
 // *********************Flatten an Object****************************
 
-// var nestedObject = {
-//     name: "John",
-//     address: {
-//       city: "New York",
-//       zip: "10001",
-//     },
-//     hobbies: {
-//       play: "yes",
-//       noplay: {
-//         sleep: "yes",
-//       },
-//     },
-//   };
+var nestedObject = {
+    name: "John",
+    address: {
+      city: "New York",
+      zip: "10001",
+    },
+    hobbies: {
+      play: "yes",
+      noplay: {
+        sleep: "yes",
+      },
+    },
+  };
 
 //   function flatObj(obj) {
 //     var newObj = {};
@@ -167,12 +235,41 @@
 //     }
 //   });
 // };
+// flattenObject(nestedObject)
 // console.log(flattendObj);
 
-// _____________________________________________________
+// __
+// 
+// function flat(obj, prefix = "") {
+//   let result = {};
 
-// var flattendObj = {};
+//   for (let key in obj) {
+//     if (typeof obj[key] === "object" && obj[key] !== null) {
+//       // Recursive call with updated key prefix
+//       let flattened = flat(obj[key], prefix + key + ".");
+//       Object.assign(result, flattened);
+//     } else {
+//       // Assign non-object values directly
+//       result[prefix + key] = obj[key];
+//     }
+//   }
+
+//   return result;
+// }
+
+// Example object
+// const obj = {
+//   a: 1,
+//   b: { c: 2, d: { e: 3, f: 4 } },
+//   g: 5,
+// };
+
+// console.log(flat(obj));
+___________________________________________________
+
+
 // const flattenObject = (obj, keyName) => {
+//     var flattendObj = {};
 //   Object.keys(obj).forEach(key => {
 //     var newKey = `${keyName}_${key}` 
 //     if (typeof obj[key] === "object") {
@@ -182,8 +279,9 @@
 //       flattendObj[newKey] = obj[key];
 //     }
 //   });
+//   return flattendObj
 // };
-// console.log(flattendObj);
+// console.log(flattenObject(nestedObject));
 // ___________________________________Find peak elemet___________________________
 
 // let arr = [2,3,4,5, 6]
@@ -324,6 +422,36 @@
 //     return acc
 // } ,[])
 // console.log(newArr);
+
+// ***************************FiboNacii*************************
+
+// function fibo(n){
+//   if (n == 0){
+//       return 0;
+//   }
+//   if (n == 1){
+//       return 1;
+//   }
+//   return fibo(n-1) + fibo(n -2)
+// }
+
+// function fibo(n){
+//   let stack  = []
+//   let a = 0;
+//   let b = 1
+
+//   for(let i = 0; i< n; i++){
+//       stack.push(a)
+//       let next = a +b
+//       a = b
+//       b = next
+//   }
+// return stack
+
+// }
+
+// console.log(fibo(8));
+
 
 // // ___________________________________________________________________Occurence___________________
 // function findMaxOccurrence(str) {
@@ -541,7 +669,6 @@
 // let arr = [1,2,3]
 // sub(arr)
 
-// ________________________________________________________________
 
 // let arr = [1, 3, 2, 4, 3, 5, 64, 3, 1, 2, 3];
 
@@ -556,6 +683,20 @@
 // }
 
 // findSubarr(arr)
+
+// function sumOfAllSubArray(arr) {
+//   let total = 0;
+
+//   for(let i = 0; i< arr.length; i++){
+//     let sum = 0
+//     for(let j = i; j< arr.length; j++){
+//       sum += arr[j]
+//       total += sum
+//     }
+//   }
+//   return total
+// }
+// console.log(sumOfAllSubArray([1,2,3]));
 
 // *******************************Subarray of given size*********************************
 
@@ -572,6 +713,22 @@
 // }
 
 // console.log(size(arr, 4));
+
+// let arr = [1, 3, 2, 4, 6, 5, 3, 4, 7, 8];
+
+// function size(arr, size) {
+//     let subArrs = [];
+//     for (let i = 0; i <= arr.length - size; i++) {
+//         let subArr = [];
+//         for (let j = 0; j < size; j++) {
+//             subArr.push(arr[i + j]);
+//         }
+//         subArrs.push(subArr);
+//     }
+//     return subArrs;
+// }
+// console.log(size(arr, 4));
+
 
 // ___________________________________________sum of subarray________________________
 // ******************************************************************************
@@ -715,6 +872,61 @@
 
 // console.log(moveZero(arr));
 
+
+// *****************************Pair***********************************
+// let arr = [1,2,3,4,5]
+// //target = 5
+
+// function pair(arr, target){
+//     let obj = {}
+
+// for(let item of arr){
+//     const compliment = target - item
+//     if(obj[compliment]){
+//         return [compliment, item]
+//     }
+//     obj[item] = true
+    
+// }
+// return null
+// }
+
+// console.log(pair(arr, 5));
+
+// function pair(arr, target) {
+//   let seen = new Set();
+
+//   for (let item of arr) {
+//       let complement = target - item;
+//       if (seen.has(complement)) {
+//           return [complement, item];
+//       }
+//       seen.add(item);
+//   }
+  
+//   return null;
+// }
+
+// Example Usage
+// const arr = [1, 2, 3, 4];
+// console.log(pair(arr, 5)); // Output: [2, 3]
+
+
+// ***************************repeatation***************************
+// let arr = [1,2,1,3,4,34]
+
+// function repeat(arr){
+//     let obj = {}
+//     for(let item of arr){
+//         obj[item] = (obj[item] || 0) + 1
+//     }
+//     return obj
+// }
+
+// console.log(repeat(arr));
+
+
+
 // let x = true;
 // let y = false;
 // let z =  1 && 0;
@@ -791,20 +1003,18 @@
 // const[a, b] = arr
 
 
-// function groupByProperty(arr, property) {
-// 	const grouped = {};
-// 	arr.forEach((obj) => {
-// 	  // console.log(obj);
-// 	  const propValue = obj[property];
-// 	  console.log(propValue);
-// 	  if (!grouped[propValue]) {
-// 		grouped[propValue] = [];
-// 	  }
+function groupByProperty(arr, property) {
+	const grouped = {};
+	arr.forEach((obj) => {
+	  const propValue = obj[property];
+	  if (!grouped[propValue]) {
+		grouped[propValue] = [];
+	  }
 
-// 	  grouped[propValue].push(obj);
-// 	});
-// 	return grouped;
-//   }
+	  grouped[propValue].push(obj);
+	});
+	return grouped;
+  }
   
 //   // Example usage:
 //   let data = [

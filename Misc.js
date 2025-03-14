@@ -126,7 +126,7 @@ function maxSub(arr){
 //     }
 
 //     return flatArray;
-// }
+// } .
 // console.log(flattenArray(arr));
 // ******************************Find duplicate Array***************************
 
@@ -260,6 +260,27 @@ function maxSub(arr){
 
 // console.log(rev(arr));
 
+// *******************************Anagram**********************
+
+function myFunc(str1, str2){
+	
+		let count = {}
+		for (let char of str1) {
+			count[char] = (count[char] || 0) + 1;
+		}
+		console.log(count);
+		
+		for (let char of str2) {
+			if(!count[char]) return false
+			count[char] --
+		}
+		return true
+	 
+}
+
+// console.log(myFunc('listenh', 'msilent'));
+
+
 // ____________________________Sort an array_____________________________________________
 
 // let arr = [2,83,4,5, 6]
@@ -279,7 +300,29 @@ function maxSub(arr){
 
 // console.log(sortArr(arr));
 
+
+// &&&&&&&&&&&&&&&&&&&&&&&&&Call back hell example%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+// function myFunc(data, cb){
+//   setTimeout(() => {
+//    console.log(data);
+//    if(cb){
+//    cb()
+
+//    }
+//   }, 3000)
+   
+// }
+
+// myFunc(1, () => {
+//    myFunc(2, () =>{
+//        myFunc(3)
+//    })
+// })
+
+
 // _________________________________Occurence of an element______________________________
+
 
 // let arr = [2,83,4,5, 6, 6, 6]
 
@@ -324,23 +367,18 @@ function maxSub(arr){
 // console.log(sum2(arr, 15));
 
 // _______________________________________Maximum of all SubArray of Size K___________________
-// function maxOfSubarrays(arr, k) {
-//     const result = [];
+function maxOfSubarrays(arr, k) {
+    const result = [];
+    for (let i = 0; i <= arr.length - k; i++) {
+        let max = arr[i];
+        for (let j = 1; j < k; j++) {
+            if (arr[i + j] > max) {
+                max = arr[i + j];}}
+        result.push(max);
+    }
 
-//     for (let i = 0; i <= arr.length - k; i++) {
-//         let max = arr[i];
-        
-//         for (let j = 1; j < k; j++) {
-//             if (arr[i + j] > max) {
-//                 max = arr[i + j];
-//             }
-//         }
-
-//         result.push(max);
-//     }
-
-//     return result;
-// }
+    return result;
+}
 
 // // Example usage:
 // const array = [1, 3, -1, -3, 5, 3, 6, 7];
@@ -350,6 +388,90 @@ function maxSub(arr){
 // console.log(`Maximum of all subarrays of size ${k}:`, result);
 
 // ______________________________________________________
+
+// *********************LOngest Substring***********************
+// function longestStr(str){
+//   let maxLength = 0
+//   let left = 0;
+//   let right = 0;
+//   let set = new Set()
+
+//   while(right< str.length){
+//       let letter = str[right]
+
+//       if(!set.has(letter)){
+//           set.add(letter)
+//           maxLength = Math.max(maxLength, set.size)
+//           right++
+
+//       } else{
+//           set.delete(str[left])
+//           left++
+//       }
+//   }
+//   return maxLength
+// }
+
+// console.log(longestStr('abcsdsdsa'));
+
+
+// ***************
+// function longestStr(str){
+//   let maxLength = 0
+//   let left  = 0
+//   let right = 0
+//   let set = new Set()
+//   chat = ''
+
+//   while (right < str.length){
+//       let letter = str[right]
+//       if(!set.has(letter)){
+//           set.add(letter)
+//           if(right - left + 1 > maxLength){
+//               maxLength = right - left + 1
+//               chat = str.slice(left, right + 1)
+//           }
+//           right ++
+//       } else {
+//           set.delete(str[left])
+//           left++
+//       }
+//   }
+//   return {maxLength, chat}
+// }
+
+// console.log(longestStr('aaaa'));
+
+
+function longestSubstring(str){
+  //   let maxLength = 0
+  //   let set = new Set()
+  //   let left = 0;
+  //   let right = 0
+  //   let char = ''
+  
+  //   while(right < str.length){
+  //     let letter = str[right]
+  //     if(!set.has(letter)){
+  //       set.add(letter)
+  //       if(set.size > maxLength){
+  //         maxLength = set.size
+  //       char = str.slice(left, right +1)
+  //       }
+  //       right++
+  //     } else{
+  //       set.delete(str[left])
+  //       left++
+  //     }
+  //   }
+  //   return [maxLength, char]
+  // }
+  
+  // console.log(longestSubstring('aab'));
+
+
+  // **********************************************************************
+
 
 
 
@@ -665,7 +787,7 @@ function maxSub(arr){
 
 // function size(arr, size){
 //     let subArrs = []
-//     for(let i = 0; i<= arr.length -size; i++){
+//     for(let i = 0; i<=arr.length -size; i++){
 //        let subArr = arr.slice(i, i+size)
 //         subArrs.push(subArr)
 
@@ -674,6 +796,20 @@ function maxSub(arr){
 // }
 
 // console.log(size(arr, 4));
+
+// *********Palidrome**********************
+// function palindrome(str) {
+//   var re = /[^A-Za-z0-9]/g;
+//   str = str.toLowerCase().replace(re, '');
+//   var len = str.length;
+//   for (var i = 0; i < len/2; i++) {
+//     if (str[i] !== str[len - 1 - i]) {
+//         return false;
+//     }
+//   }
+//   return true;
+//  }
+//  palindrome("A man, a plan, a canal. Panama");
 
 // ***********************Move all zeros to right**************************
 // let arr = [2, 9, 0, 6, 34, 0, 1, 2, 0, 8];
@@ -710,6 +846,25 @@ function maxSub(arr){
 // }
 
 // console.log(moveZero(arr));
+
+// function moveZero(arr) {
+//   let noneZeroIndex = 0;
+
+//   // Move all non-zero elements to the front
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== 0) {
+//       arr[noneZeroIndex] = arr[i]; // Overwrite the element at noneZeroIndex
+//       noneZeroIndex++;
+//     }
+//   }
+
+//   // Fill the remaining positions with zeros
+//   for (let i = noneZeroIndex; i < arr.length; i++) {
+//     arr[i] = 0;
+//   }
+
+//   return arr;
+// }
 
 // let x = true;
 // let y = false;
@@ -787,6 +942,42 @@ function maxSub(arr){
 // const[a, b] = arr
 
 
+// var foo = {a: 'alpha', 2: 'two'};
+// console.log(foo.a);  
+// console.log(foo[2]); 
+// console.log(foo.2);
+// console.log(foo[a]); 
+
+// const original = { a: 1, b: { c: 2 } };
+
+// Shallow copy
+// const shallow = { ...original };
+// shallow.b.c = 99;
+// console.log(original.b.c); 99
+
+// Deep copy
+// const deep = JSON.parse(JSON.stringify(original));
+// deep.b.c = 42;
+// console.log(original.b.c); 42
+
+//  const arr = [10, 12, 15, 21];
+// for (var i = 0; i < arr.length; i++) {
+//    setTimeout(function() {
+//    console.log('Index: ' + i + ', value: ' + arr[i]); 
+
+
+//  }, 3000);
+// }
+
+// var foo = "Hello";
+//  (function() {
+//      var bar = " World";
+//      console.log(foo + bar);
+//  })();
+//  console.log(foo + bar);
+
+
+
 // function groupByProperty(arr, property) {
 // 	const grouped = {};
 // 	arr.forEach((obj) => {
@@ -801,15 +992,37 @@ function maxSub(arr){
 // 	});
 // 	return grouped;
 //   }
+
+// *********************Data transformation**************************************
+
+// let output = {}
+// data.forEach((item) => {
+//   if(output[item.category]){
+//       output[item.category].push(item)
+//   } else {
+//       output[item.category] = [item]
+//   }
+// }
+// )
+// console.log(output);
+
+// let output = data.reduce((acc, item) => {
+//   if (!acc[item.category]) {
+//     acc[item.category] = []; 
+//   }
+//   acc[item.category].push(item); 
+//   return acc; 
+// }, {});
+
   
 //   // Example usage:
-//   let data = [
-// 	{ id: 1, category: "A", value: "apple" },
-// 	{ id: 2, category: "B", value: "banana" },
-// 	{ id: 3, category: "A", value: "avocado" },
-// 	{ id: 4, category: "B", value: "blueberry" },
-// 	{ id: 5, category: "C", value: "cherry" },
-//   ];
+  // let data = [
+	// { id: 1, category: "A", value: "apple" },
+	// { id: 2, category: "B", value: "banana" },
+	// { id: 3, category: "A", value: "avocado" },
+	// { id: 4, category: "B", value: "blueberry" },
+	// { id: 5, category: "C", value: "cherry" },
+  // ];
   
 //   let groupedByCategory = groupByProperty(data, "category");
 //   console.log(groupedByCategory);
